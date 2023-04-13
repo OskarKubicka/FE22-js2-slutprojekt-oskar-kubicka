@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Rationale&display=swap");
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    color: rgb(255, 255, 255);
+    font-family: Rationale, sans-serif;
+    background-color: hsl(0, 59%, 31%);
+}
+
+#back-index {
+    background-color: white;
+}
+
+
+#list-of-users,
+#show-list {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: center;
+}
+
+
+
+img {
+    width: 80px;
+
+    border-radius: 10px;
+    margin: 10px;
+    background-color: black;
+}
+
+#logga-in {
+    display: flex;
+    flex-flow: column;
+
+    width: 20vw
+}
+
+#logga-in * {
+    margin: 7px;
+}
+
+#logga-in-knapp {
+    width: 10vw;
+    align-self: center;
+    margin-top: 10px;
+}
+
+legend {
+    align-self: center;
+}
+
+#index {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: hsl(0, 56%, 40%);
+    min-height: 50vh;
+    margin: 10px 30vw 10px 30vw;
+    border-radius: 20px;
+    padding: 20px;
+    border: black solid 7px
+}
+
+#index * {
+    margin: 7px;
+}
+
+#create-form {
+  
+    display: none;
+    width: 19vw;
+    align-items: center;
+}
+
+#create {
+    width: 10vw;
+
+}
+
+#name,
+#pass {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#name-logga-in,
+#pass-logga-in {
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.radio-img {
+    display: flex;
+    background-color: black;
+    margin: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    border: 2px white solid
+}
+
+#nytt-konto {
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+}
+
+#nytt-konto:hover {
+    cursor: pointer;
+}
+
+/*/////////////////////////profile.html css/////////////////////////////*/
+
+#status {
+    background-color: hsl(0, 59%, 31%);
+    
+    height: 100%;
+    
+}
+
+#my-profile {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+}
+
+#my-profile * {
+    
+    align-self: center;
+
+}
+
+#comments {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: hsl(0, 59%, 31%);
+    color: black;
+    width: 100%
+}
+
+#comments * {
+    border-radius: 15px;
+    margin: 15px;
+    max-width: 700px;
+    border: black solid 3px;
+    overflow: hidden;
+    background-color: rgb(195, 255, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#title {
+    display: flex;
+    background-color: black;
+    border-radius: 15px;
+    margin: 20px;
+    border: white dashed 2px
+}
+
+#title * {
+    color: white;
+    padding: 0 15px 0 15px
+}
+
+#status-input {
+    border-radius: 15px;
+ 
+    padding: 5px
+}
+
+button {
+    padding: 5px;
+    margin: 4px;
+    background-color: rgb(255, 128, 0);
+    color: black;
+    border-radius: 5px;
+    border: white solid 2px;
+    font-family: Rationale, sans-serif;
+    font-size: large;
+}
+
+#log-delete {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+#status-form {
+    display: flex;
+
+}
+
+#status-form * {
+    margin: 10px
+}
+
+#left-smycka {
+    position: absolute;
+    height: 70vh;
+    left: 0;
+    top: 20vh;
+    width: 3vw;
+    background-color: white;
+    border-radius: 0 20px 20px 0;
+}
+
+
+
+#status-button {
+    border: dashed black 4px;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+/*//////////////////////////////////userpage.html css/////////////////////////////////////////*/
+
+#show-user {
+    background-color: hsl(0, 59%, 31%);
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+
+
+}
+
+#home {
+    position: absolute;
+    left: 15px;
+    top: 35px;
+    background-color: hsl(0, 59%, 31%);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#home:hover {
+    cursor: pointer
+}
+
+#show-list h1 {
+
+    background-color: hsla(30, 80%, 50%, 1);
+    border-radius: 10px;
+    text-align: center;
+    padding: 8px 10px;
+
+    border: #b2501d solid 15px;
+    font-size: larger;
+    margin-top: 10px;
+}
+
+#show-list:hover {
+    cursor: pointer;
+}
+
+#show-list h2:hover {
+    cursor: default
+}
+
+#show-list h2 {
+
+    background-color: #b2501d;
+    border-radius: 10px;
+    text-align: center;
+    padding: 8px 10px;
+
+
+    font-size: larger;
+    margin: 10px;
+}
+
+
+
+#show-user * {
+    align-self: center;
+
+}
+
+#show-user p {
+    background-color: rgb(195, 255, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+    border: 3px solid black;
+    border-radius: 15px;
+    color: black;
+    max-width: 700px;
+}
+
+#show-user img {
+    margin-top: 0;
+}
+
+#show-user h1 {
+    background-color: hsl(0, 59%, 31%);
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: white solid 2px
+}
+
+#title-statusar {
+    padding: 20px
+}
+
+#background {
+    background-color: hsl(0, 59%, 31%);
+    height: 100%;
+}
+
+#title-user {
+    display: flex;
+    flex-flow: column;
+    background-color: black;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: white dashed 2px;
+    width: 100%;
+    border-top: hsl(0, 59%, 31%) solid 10px;
+}
