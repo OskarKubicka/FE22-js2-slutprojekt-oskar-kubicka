@@ -1,4 +1,4 @@
-type Data = {
+type User = {
     password: string
     status: string[]
     url: string
@@ -6,4 +6,6 @@ type Data = {
     counter?: number[]
 }
 
-export {Data}
+
+
+export {User}

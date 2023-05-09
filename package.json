@@ -2,12 +2,10 @@
   "name": "slutprojekt",
   "version": "1.0.0",
   "description": "",
-
   "scripts": {
-    "dev": "parcel ./src/index.html ./src/html/profile.html ./src/html/userpage.html",
-    "build": "parcel build ./src/index.html ./src/html/profile.html ./src/html/userpage.html --dist-dir docs --public-url /FE22-js2-slutprojekt-oskar-kubicka/",
+    "dev": "parcel ./src/index.html ./src/html/profile.html ./src/html/differentUserpages.html",
+    "build": "parcel build ./src/index.html ./src/html/profile.html ./src/html/differentUserpages.html --dist-dir docs --public-url /FE22-js2-slutprojekt-oskar-kubicka/",
     "clean": "del-cli ./.parcel-cache ./docs ./dist"
-
   },
   "keywords": [],
   "author": "",
@@ -16,9 +14,9 @@
     "del-cli": "^5.0.0",
     "parcel": "^2.8.3"
   },
-  "browserslist":[
+  "browserslist": [
     ">0.5%",
-    "not dead", 
+    "not dead",
     "not ie <=11"
   ]
 }

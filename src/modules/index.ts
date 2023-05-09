@@ -1,4 +1,5 @@
-import { Data } from "./type.ts"
+import { User } from "./type.ts"
+import { getUsers, putUser } from "./firebase.ts"
 
 
 const formCreate: HTMLElement | null = document.getElementById('create-form')
@@ -10,8 +11,8 @@ const newAccount: HTMLElement | null = document.getElementById('nytt-konto');
 if (newAccount) newAccount.addEventListener('click', () => {
     if (formCreate && formLogIn) {
         formCreate.style.display = "flex"
-        formCreate.style.flexFlow= "column";
-        newAccount.style.display ="none"
+        formCreate.style.flexFlow = "column";
+        newAccount.style.display = "none"
         formLogIn.style.display = "none"
     }
 })
@@ -33,34 +34,27 @@ if (formCreate && img1div && img2div && img3div) {
     img3.src = imgUrl3.href;
     img3.setAttribute("class", "img")
 }
-////fetch
-const url: string = `https://slutprojekt-js2-oskar-default-rtdb.europe-west1.firebasedatabase.app/users.json`
-
-async function getUsers(): Promise<Data[]> {
-    const response = await fetch(url);
-    const data = await response.json();
-    
-    return data
-}
 
 
 getUsers().then(createUser)
 
+getUsers().then(logIn)
 
-function createUser(data: Data[]): void {
+function createUser(totalUsers: User[]): void {
+
     //längden på arrayen för att se vilken plats ny användare ska in på
 
-    let lengthUse: number = data.length
+    let lengthUse: number = totalUsers.length
 
     ///jämför om användaren redan finns
     const nameArr: string[] = [];
-    if (data.length != 0) {
-        data.forEach(element => {
+
+    if (totalUsers.length != 0) {
+        totalUsers.forEach(element => {
 
             nameArr.push(element.username)
         })
     }
-
 
     if (formCreate) {
         formCreate.addEventListener('submit', event => {
@@ -68,7 +62,7 @@ function createUser(data: Data[]): void {
 
             const target: HTMLElement = event.target as HTMLElement;
             if (target) {
-               
+
 
                 const userName: string = target[0].value
                 const password: string = target[1].value
@@ -76,10 +70,10 @@ function createUser(data: Data[]): void {
                 if (target[2].checked) {
                     imgUrl = target[2].value
                 }
-                if (target[3].checked) {
+                else if (target[3].checked) {
                     imgUrl = target[3].value
                 }
-                if (target[4].checked) {
+                else if (target[4].checked) {
                     imgUrl = target[4].value
                 }
 
@@ -115,37 +109,18 @@ function createUser(data: Data[]): void {
     }
 }
 
-//skapa användare
-async function putUser(obj: object, index: number) {
-    const urlPut: string = `https://slutprojekt-js2-oskar-default-rtdb.europe-west1.firebasedatabase.app/users/${index}.json`
-    const init: Object = {
-        method: 'PUT',
-        body: JSON.stringify(obj),
-        headers: {
-            'Content-type': "application/json;charset=UTF-8"
-        }
-    };
-    const response = await fetch(urlPut, init);
-    const data = await response.json();
+function logIn(allUsers: User[]): void {
 
-}
-
-//logga in
-
-getUsers().then(logIn)
-
-function logIn(data: Data[]): void {
-
-    ///jämför om användaren redan finns
+    ///lägger alla användares namn och lösen i varsin array
     const nameArr: string[] = [];
     const passArr: string[] = [];
-    if (data.length != 0) {
-        data.forEach(element => {
+    if (allUsers.length != 0) {
+        allUsers.forEach(element => {
             nameArr.push(element.username)
             passArr.push(element.password)
         })
     }
-  
+
 
     if (formLogIn) {
         formLogIn.addEventListener('submit', event => {
@@ -159,11 +134,11 @@ function logIn(data: Data[]): void {
                 let passWord = target[1].value
 
                 if (userName) {
-
+                    //om namnarrayen innehåller nuvarande inloggsnamn:
                     if (nameArr.includes(userName) == true) {
-                     
+
                         if (passWord == passArr[nameArr.indexOf(userName)]) {
-                           
+
                             localStorage.setItem('user', userName)
 
                             window.location.assign("./html/profile.html")
@@ -179,4 +154,6 @@ function logIn(data: Data[]): void {
     }
 }
 
+
+//export {formCreate, formLogIn}
 
